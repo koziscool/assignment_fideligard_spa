@@ -12,12 +12,12 @@
     <form name="tradeSubmitForm">
       <div class="form-group">
       <label for="symbol">Symbol</label>
-      <input type="text" ng-model="symbol" value=""></br>
+      <input type="text" ng-model="formData.symbol" value=""></br>
       </div>
 
       <div class="form-group">
       <label for="trade-direction">Buy/Sell</label>
-      <select ng-model="trade-direction">
+      <select ng-model="formData.direction">
         <option value="buy">Buy</option>
         <option value="sell">Sell</option>
       </select></br>
@@ -25,17 +25,17 @@
 
       <div class="form-group">
       <label for="trade-price">Price</label>
-      <input type="number" name="price" ng-model="trade-price"></br>
+      <input type="number" name="price" ng-model="formData.price"></br>
       </div>
 
       <div class="form-group">
       <label for="trade-quantity">Quantity</label>
-      <input type="number" name="quantity" ng-model="trade-quantity"></br>
+      <input type="number" name="quantity" ng-model="formData.quantity"></br>
       </div>
 
       <div class="form-group">
       <label for="trade-date">Date</label>
-      <input type="date" name"tradeDate" ng-model="trade-date"></br>
+      <input type="date" name"tradeDate" ng-model="formData.date"></br>
       </div>
 
       <div class="form-group">
