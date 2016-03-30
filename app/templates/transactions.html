@@ -14,7 +14,7 @@
         Symbol
       </th>
       <th>
-        Type
+        Direction
       </th>
       <th>
         Quantity
@@ -26,22 +26,12 @@
   </thead>
 
   <tbody>
-    <tr>
-      <td>
-
-      </td>
-      <td>
-
-      </td>
-      <td>
-
-      </td>
-      <td>
-
-      </td>
-      <td>
-
-      </td>
+    <tr ng-repeat="transaction in transactions">
+      <td>{{transaction.date}}</td>
+      <td>{{transaction.symbol}}</td>
+      <td>{{transaction.direction}}</td>
+      <td>{{transaction.quantity}}</td>
+      <td>{{transaction.price}}</td>
     </tr>
   </tbody>
 </table>

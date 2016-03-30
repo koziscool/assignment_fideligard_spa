@@ -1,100 +1,75 @@
-stocks.factory('PortfolioService', ['$http', function($http) {
 
-  var PortfolioService = {};
-  var stocks = [];
-  var testLength = 3;
-  var testSymbols = ['MSFT', 'INTC', 'AAPL', 'ORCL', 'MMM', 
-          'NFLX', 'NVDA', 'TSLA', 'BIDU', 'CSCO', 'EBAY', 'GOOG' ];
-  var testPrice = [ 30.01, 18.22, 21.31];
-  var testNames = ['Microsoft', 'Intel', 'Oracle'];
-  var historicalData = {};
+stocks.factory('PortfolioService', ['DataService', function(DataService) {
 
-  PortfolioService.createStock = function(index) {
-    var stock = {};
-    stock.symbol = testSymbols[index];
-    stock.name = testNames[index];
-    stock.price = testPrice[index];
-    // stock.description = testSymbols[index];
-    // stock.id = currentStockID;
-    // currentStockID++;
-    stocks.push( stock );
+  function date_by_subtracting_days(date, days) {
+    return new Date(
+        date.getFullYear(),
+        date.getMonth(),
+        date.getDate() - days,
+        date.getHours(),
+        date.getMinutes(),
+        date.getSeconds(),
+        date.getMilliseconds()
+        );
   };
 
-  PortfolioService.getStocks = function() {
-    return stocks;
+  var PortfolioService = {}; 
+
+  var symbols = DataService.getSymbols();
+  var transactions = [];
+  var initialCash = 1000000;
+  var position = {
+    cash: initialCash,
+    stockPositions: []
   };
 
-  PortfolioService.getSymbols = function() {
-    return testSymbols;
+  var date1 = date_by_subtracting_days( new Date(), 41 );
+  var transaction1 = {
+    date: date1,
+    symbol: 'CSCO',
+    direction: 'Buy',
+    quantity: '300',
+    price: 27.77
+  }
+
+  var date2 = date_by_subtracting_days( new Date(), 41 );
+  var transaction2 = {
+    date: date1,
+    symbol: 'GOOG',
+    direction: 'Buy',
+    quantity: '100',
+    price: 711.11
+  }
+
+  var date3 = date_by_subtracting_days( new Date(), 41 );
+  var transaction3 = {
+    date: date1,
+    symbol: 'INTC',
+    direction: 'Buy',
+    quantity: '600',
+    price: 31.99
+  }
+
+  var date4 = date_by_subtracting_days( new Date(), 41 );
+  var transaction4 = {
+    date: date1,
+    symbol: 'CSCO',
+    direction: 'Sell',
+    quantity: '100',
+    price: 28.12
+  }
+
+  transactions.push( transaction1 );
+  transactions.push( transaction2 );
+  transactions.push( transaction3 );
+  transactions.push( transaction4 );
+
+  PortfolioService.getTransactions = function() {
+    return transactions;
   };  
 
-  PortfolioService.setupPortfolio = function() {
-    if (stocks.length === 0) {
-      for(var i = 0; i < testLength; i++) {
-        PortfolioService.createStock(i);
-      }
-    }
-  };
 
-  PortfolioService.initializeHistoricalData = function() {
-    testSymbols.forEach( function(sym){
-      historicalData[sym] = {};
-    });
-    console.log('im here hist data');
-   //  var loginString = "http://api.kibot.com/?action=login&user=guest&password=guest";
-    
-   //  var loginObj = {
-   //    method: "GET",
-   //    url: loginString
-   //  };
-
-   // $http(loginObj).then( function(response) {
-   //      console.log('got login');
-   //  });
-
-   //  var urlString = "http://api.kibot.com/";
-   //  var apiOptions = {
-   //    "action": "history",
-   //    "symbol": "MSFT",
-   //    "interval": "daily",
-   //    "period": "365"
-   //  };
-
-   //  var optionsString = "?";
-   //  for (var key in apiOptions) {
-   //    optionsString = optionsString + key + "=" + apiOptions[key] + "&";
-   //  }
-
-
-   //  console.log(optionsString);
-   //  var queryString = urlString + optionsString;
-   //  console.log(queryString);
-
-   //  var queryString = "https://www.quandl.com/api/v3/datasets/WIKI/AAPL.json"
-   //  var queryObj = {
-   //    method: "GET",
-   //    url: queryString
-   //  };
-
-   // $http(queryObj)
-   //  .then(function(response) {
-   //      console.log('got response');
-   //      console.log(response);
-   //  });
-
-    console.log(historicalData);
-  };
-
-  PortfolioService.getHistoricalData = function() {
-    // if (stocks.length === 0) {
-    //   for(var i = 0; i < testLength; i++) {
-    //     PortfolioService.createStock(i);
-    //   }
-    // }
-  };
-
-  PortfolioService.setupPortfolio();
 
   return PortfolioService;
-}]);
 
+}]);

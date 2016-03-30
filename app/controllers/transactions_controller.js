@@ -1,5 +1,6 @@
 
-stocks.controller('TransactionCtrl', ['$scope', '$stateParams', function($scope, $stateParams) {
+stocks.controller('TransactionCtrl', ['$scope', '$stateParams', 'PortfolioService', function($scope, $stateParams, PortfolioService) {
 
+  $scope.transactions =  PortfolioService.getTransactions();
 }]);
 

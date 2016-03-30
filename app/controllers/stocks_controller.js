@@ -1,9 +1,10 @@
-stocks.controller('StocksCtrl', ['$http', '$scope', '$stateParams', 'PortfolioService', function($http, $scope, $stateParams, PortfolioService) {
+
+stocks.controller('StocksCtrl', ['$http', '$scope', '$stateParams', 'DataService', function($http, $scope, $stateParams, DataService) {
 
   console.log($stateParams);
 
   $scope.symbolFilter = ''
-  $scope.currentSymbols =  PortfolioService.getSymbols();
+  $scope.currentSymbols =  DataService.getSymbols();
 
   $scope.currentDate = new Date();
   $scope.stocks = {};
