@@ -1,10 +1,14 @@
-<h3>Transactions</h3>
 
-<label for="filter">Filter</label>
-<input type="text" ng-model="filter-symbol"></input>
+</br>
+<div class="panel panel-default">
+<div class="panel-heading">
+  <div class="form-group pull-right">
+    <input id="filter" type="text" name="filter" class="form-control" placeholder="CSC..." ng-model="symbolFilter">
+  </div>
+  <h3>Transactions</h3>
+</div>
 
-
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>
@@ -27,7 +31,7 @@
 
   <tbody>
     <tr ng-repeat="transaction in transactions">
-      <td>{{transaction.date}}</td>
+      <td>{{transaction.date | date : "MMM d, yyyy"  }}</td>
       <td>{{transaction.symbol}}</td>
       <td>{{transaction.direction}}</td>
       <td>{{transaction.quantity}}</td>
@@ -35,3 +39,4 @@
     </tr>
   </tbody>
 </table>
+</div>

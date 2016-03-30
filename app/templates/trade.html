@@ -1,25 +1,64 @@
-<div>
-    <form>
 
+
+</br>
+<div class="panel panel-default">
+
+  <div class="panel-heading">
+    <h3>Trade</h3>
+  </div>
+
+<div class="row">
+  <div class="col-xs-6">
+    <form>
+      <div class="form-group">
       <label for="symbol">Symbol</label>
       <input type="text" ng-model="symbol" value=""></br>
+      </div>
 
+      <div class="form-group">
       <label for="trade-direction">Buy/Sell</label>
       <select ng-model="trade-direction">
         <option value="buy">Buy</option>
         <option value="sell">Sell</option>
       </select></br>
+      </div>
 
+      <div class="form-group">
       <label for="trade-price">Price</label>
       <input type="number" ng-model="trade-price"></br>
+      </div>
 
+      <div class="form-group">
       <label for="trade-quantity">Quantity</label>
       <input type="number" ng-model="trade-quantity"></br>
+      </div>
 
+      <div class="form-group">
       <label for="trade-date">Date</label>
       <input type="date" ng-model="trade-date"></br>
+      </div>
 
+      <div class="form-group">
       <button type="button">Input Trade</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="col-xs-6">
+    <div class="form-group">
+      <h5>Cash Available</h></br>
+      {{ 123456.78 | currency }}
+    </div>
+    <div class="form-group">
+      <h5>Order Status</h5>
+      VALID
+    </div>
+  </div>
+
 
     </form>
+  <div>
+
+
+</div>
 </div>

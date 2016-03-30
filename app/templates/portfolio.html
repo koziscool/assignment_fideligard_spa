@@ -1,6 +1,9 @@
-<h4>Portfolio</h4>
-
-<table>
+</br>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h4>Portfolio</h4>
+  </div>
+<table class="table">
   <thead>
     <tr>
       <th>
@@ -26,29 +29,17 @@
 
   <tbody>
     <tr>
-      <td>
-
-      </td>
-      <td>
-
-      </td>
-      <td>
-
-      </td>
-      <td>
-
-      </td>
-      <td>
-
-      </td>
-      <td>
-
-      </td>
+      <td>{{ summary.costBasis | currency }}</td>
+      <td>{{ summary.currentValue | currency }}</td>
+      <td>{{ summary.profitLoss | currency }}</td>
+      <td>{{ summary.oneDay | currency }}</td>
+      <td>{{ summary.sevenDay | currency }}</td>
+      <td>{{ summary. thirtyDay | currency }}</td>
     </tr>
   </tbody>
 </table>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>
@@ -85,38 +76,20 @@
   </thead>
 
   <tbody>
-    <tr>
-      <td>
+    <tr ng-repeat="position in portfolio">
+      <td>{{ position.symbol }}</td>
+      <td>{{ position.quantity | currency }}</td>
+      <td>{{ position.costBasis | currency }}</td>
+      <td>{{ position.currentValue | currency }}</td>
+      <td>{{ position.profitLoss | currency }}</td>
+      <td>{{ position.currentPrice | currency }}</td>
+      <td>{{ position.oneDay | currency }}</td>
+      <td>{{ position.sevenDay | currency }}</td>
+      <td>{{ position. thirtyDay | currency }}</td>
 
-      </td>
-      <td>
-
-      </td>
-      <td>
-
-      </td>
-      <td>
-
-      </td>
-      <td>
-
-      </td>
-      <td>
-
-      </td>
-      <td>
-
-      </td>
-      <td>
-
-      </td>
-      <td>
-
-      </td>
-      <td>
-        <a ui-sref="stocks.trade( { symbol: 'CSCO' } )">trade</a>
-      </td>
+      <td><a ui-sref="stocks.trade( { symbol: position.symbol } )">trade</a> </td>
     </tr>
   </tbody>
 </table>
+</div>
 
