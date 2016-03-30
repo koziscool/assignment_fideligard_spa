@@ -3,4 +3,8 @@ stocks.controller('TradeCtrl', ['$scope', '$stateParams', function($scope, $stat
   // console.log($('#dateSlider').val());
   console.log($stateParams);
 
+  $scope.handleForm = function(){
+    console.log('tetris');
+  };
+
 }]);
