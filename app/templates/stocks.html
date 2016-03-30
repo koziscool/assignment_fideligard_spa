@@ -23,14 +23,14 @@
           <th>Trade</th>
         </thead>
         <!-- <stock-display stocks="stocks" diffs="stockDifference"></stock-display> -->
-        <tr stock-display stock='stock' values='values' current-date="currentDate" ng-repeat="(stock, values) in stocks | stockFilter: symbolFilter">
+        <tr stock-display stock='stock' values='values' current-date="currentDate" ng-repeat="(stock, values) in stocks | stockFilter: symbolFilter"></tr>
       </table>
     </div>
   </div>
 
   {{currentDate | date}}
   <div class="col-sm-6">
-    <date-slider current-date="currentDate">
+    <date-slider current-date="currentDate"></date-slider>
     <ui-view></ui-view>
   </div>
 

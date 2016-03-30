@@ -3,4 +3,4 @@
 <td ng-class="oneDay < 0 && 'loss' || oneDay > 0 && 'gain'">{{oneDay | currency}}</td>
 <td ng-class="sevenDays < 0 && 'loss' || sevenDays > 0 && 'gain'">{{sevenDays | currency}}</td>
 <td ng-class="thirtyDays < 0 && 'loss' || thirtyDays > 0 && 'gain'">{{thirtyDays | currency}}</td>
-<td><a>Trade</a></td>
+<td><a ui-sref="stocks.trade( { symbol: stock } )">Trade</a></td>

@@ -1,5 +1,5 @@
 stocks.directive('stockDisplay', [ function() {
-  console.log('stock display directive');
+  // console.log('stock display directive');
 
   function date_by_subtracting_days(date, days) {
     return new Date(

@@ -30,15 +30,15 @@ stocks.config(function($stateProvider, $urlRouterProvider) {
  })
 
  .state( 'stocks.trade', {
-    url: '/trade',
+    url: '/trade/{symbol}',
     controller: 'TradeCtrl',
-    template: "<div>Trade</div>",
+    templateUrl: "/app/templates/trade.html"
  })
 
  .state( 'stocks.transactions', {
     url: '/transactions',
     controller: 'TransactionCtrl',
-    template:  "<div>Transaction</div>",
+    templateUrl: "/app/templates/transactions.html"
  });
 
 

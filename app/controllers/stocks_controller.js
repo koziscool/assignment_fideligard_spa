@@ -1,5 +1,6 @@
 stocks.controller('StocksCtrl', ['$http', '$scope', '$stateParams', 'PortfolioService', function($http, $scope, $stateParams, PortfolioService) {
 
+  console.log($stateParams);
 
   $scope.symbolFilter = ''
   $scope.currentSymbols =  PortfolioService.getSymbols();
@@ -16,6 +17,7 @@ stocks.controller('StocksCtrl', ['$http', '$scope', '$stateParams', 'PortfolioSe
       });
     });
   });
+
 }]);
 
 stocks.filter('stockFilter', function() {
